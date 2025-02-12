@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<entity
+  xmlns="http://guidewire.com/datamodel"
+  entity="ApoorvaCustom_Ext"
+  desc="ApoorvaCustom"
+  table="apoorvacustom_ext"
+  type="retireable">
+  <column
+    desc="FirstName"
+    name="FirstName"
+    nullok="true"
+    type="shorttext"/>
+</entity>
