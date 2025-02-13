@@ -20,6 +20,8 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
   
   public static final gw.pl.persistence.type.EntityPropertyInfoReference<gw.entity.IColumnPropertyInfo> FIRSTNAME_PROP = new com.guidewire.commons.metadata.types.ColumnPropertyInfoCache(TYPE, "FirstName");
   
+  public static final gw.pl.persistence.type.EntityPropertyInfoReference<gw.entity.IColumnPropertyInfo> HELLOWORLD_PROP = new com.guidewire.commons.metadata.types.ColumnPropertyInfoCache(TYPE, "HelloWorld");
+  
   public static final gw.pl.persistence.type.EntityPropertyInfoReference<gw.entity.IColumnPropertyInfo> ID_PROP = new com.guidewire.commons.metadata.types.ColumnPropertyInfoCache(TYPE, "ID");
   
   public static final gw.pl.persistence.type.EntityPropertyInfoReference<gw.entity.IColumnPropertyInfo> LOADCOMMANDID_PROP = new com.guidewire.commons.metadata.types.ColumnPropertyInfoCache(TYPE, "LoadCommandID");
@@ -31,6 +33,8 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
   public static final gw.pl.persistence.type.EntityPropertyInfoReference<gw.entity.IColumnPropertyInfo> UPDATETIME_PROP = new com.guidewire.commons.metadata.types.ColumnPropertyInfoCache(TYPE, "UpdateTime");
   
   public static final gw.pl.persistence.type.EntityPropertyInfoReference<gw.entity.ILinkPropertyInfo> UPDATEUSER_PROP = new com.guidewire.commons.metadata.types.LinkPropertyInfoCache(TYPE, "UpdateUser");
+  
+  public static final gw.pl.persistence.type.EntityPropertyInfoReference<gw.entity.IColumnPropertyInfo> SECONDNAME_PROP = new com.guidewire.commons.metadata.types.ColumnPropertyInfoCache(TYPE, "secondName");
   
   private com.guidewire.pl.persistence.code.DelegateLoader _delegateManager;
   
@@ -123,6 +127,15 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
     return (java.lang.String)__getInternalInterface().getFieldValueForCodegen(FIRSTNAME_PROP.get());
   }
   
+  /**
+   * Gets the value of the HelloWorld field.
+   * second name details
+   */
+  @gw.internal.gosu.parser.ExtendedProperty
+  public java.lang.String getHelloWorld() {
+    return (java.lang.String)__getInternalInterface().getFieldValueForCodegen(HELLOWORLD_PROP.get());
+  }
+  
   @com.guidewire.pl.persistence.codegen.annotation.OverridesAccessor
   @gw.internal.gosu.parser.ExtendedProperty
   public gw.pl.persistence.core.Key getID() {
@@ -170,6 +183,15 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
   @gw.internal.gosu.parser.ExtendedProperty
   public entity.User getUpdateUser() {
     return (entity.User)__getInternalInterface().getFieldValue(UPDATEUSER_PROP.get());
+  }
+  
+  /**
+   * Gets the value of the secondName field.
+   * second name details
+   */
+  @gw.internal.gosu.parser.ExtendedProperty
+  public java.lang.String getsecondName() {
+    return (java.lang.String)__getInternalInterface().getFieldValueForCodegen(SECONDNAME_PROP.get());
   }
   
   /**
@@ -253,6 +275,13 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
   }
   
   /**
+   * Sets the value of the HelloWorld field.
+   */
+  public void setHelloWorld(java.lang.String value) {
+    __getInternalInterface().setFieldValueForCodegen(HELLOWORLD_PROP.get(), value);
+  }
+  
+  /**
    * Sets the value of the ID field.
    */
   private void setID(gw.pl.persistence.core.Key value) {
@@ -299,6 +328,13 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
    */
   private void setUpdateUser(entity.User value) {
     __getInternalInterface().setFieldValue(UPDATEUSER_PROP.get(), value);
+  }
+  
+  /**
+   * Sets the value of the secondName field.
+   */
+  public void setsecondName(java.lang.String value) {
+    __getInternalInterface().setFieldValueForCodegen(SECONDNAME_PROP.get(), value);
   }
   
   /**
@@ -399,6 +435,15 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
       return (java.lang.String)__getInternalInterface().getFieldValueForCodegen(FIRSTNAME_PROP.get());
     }
     
+    /**
+     * Gets the value of the HelloWorld field.
+     * second name details
+     */
+    @gw.internal.gosu.parser.ExtendedProperty
+    public java.lang.String getHelloWorld() {
+      return (java.lang.String)__getInternalInterface().getFieldValueForCodegen(HELLOWORLD_PROP.get());
+    }
+    
     @com.guidewire.pl.persistence.codegen.annotation.OverridesAccessor
     @gw.internal.gosu.parser.ExtendedProperty
     public gw.pl.persistence.core.Key getID() {
@@ -450,6 +495,15 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
     
     public gw.pl.persistence.core.Key getUpdateUserID() {
       return (gw.pl.persistence.core.Key)getRawFieldValue(UPDATEUSER_PROP.get());
+    }
+    
+    /**
+     * Gets the value of the secondName field.
+     * second name details
+     */
+    @gw.internal.gosu.parser.ExtendedProperty
+    public java.lang.String getsecondName() {
+      return (java.lang.String)__getInternalInterface().getFieldValueForCodegen(SECONDNAME_PROP.get());
     }
     
     public void initInBundle(gw.pl.persistence.core.Key id, gw.pl.persistence.core.Bundle bundle) {
@@ -569,6 +623,13 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
     }
     
     /**
+     * Sets the value of the HelloWorld field.
+     */
+    public void setHelloWorld(java.lang.String value) {
+      __getInternalInterface().setFieldValueForCodegen(HELLOWORLD_PROP.get(), value);
+    }
+    
+    /**
      * Sets the value of the ID field.
      */
     public void setID(gw.pl.persistence.core.Key value) {
@@ -627,6 +688,13 @@ public class ApoorvaCustom_Ext extends com.guidewire.pl.persistence.code.BeanBas
     
     public void setUpdateUserID(gw.pl.persistence.core.Key value) {
       setFieldValue(UPDATEUSER_PROP.get(), value);
+    }
+    
+    /**
+     * Sets the value of the secondName field.
+     */
+    public void setsecondName(java.lang.String value) {
+      __getInternalInterface().setFieldValueForCodegen(SECONDNAME_PROP.get(), value);
     }
     
     /**

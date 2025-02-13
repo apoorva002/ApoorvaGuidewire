@@ -15,4 +15,9 @@
     name="secondName"
     nullok="true"
     type="shorttext"/>
+  <column
+    desc="second name details"
+    name="HelloWorld"
+    nullok="true"
+    type="shorttext"/>
 </entity>
