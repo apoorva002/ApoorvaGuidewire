@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../pcf.xsd">
+  <Page
+    canEdit="true"
+    id="MyFirstClient_ClientNamePage"
+    title="&quot;My First Client Specific Page&quot;">
+    <LocationEntryPoint
+      signature="MyFirstClient_ClientNamePage(anABContact : ABContact)"/>
+    <Variable
+      name="anABContact"
+      type="ABContact"/>
+    <Variable
+      initialValue="new NewUserInfo_ClientName()"
+      name="customUserInstance"
+      type="NewUserInfo_ClientName"/>
+    <Variable
+      initialValue="new BackGroundVeri_Ext()"
+      name="backGroundVerification"
+      type="BackGroundVeri_Ext"/>
+    <Screen>
+      <Toolbar>
+        <EditButtons/>
+        <ToolbarButton
+          action="gw.CustomCode.MyGenericUtil.valuesComingFromDB(customUserInstance)"
+          id="TB1"
+          label="&quot;Add Values from DB&quot;"/>
+        <ToolbarButton
+          action="customUserInstance.updateFromCurrentBundle()"
+          id="btn66"
+          label="&quot;Current Bundle&quot;"/>
+      </Toolbar>
+      <CardViewPanel>
+        <Card
+          id="Card8"
+          title="&quot;Reflection Impl&quot;">
+          <DetailViewPanel>
+            <InputColumn>
+              <TextInput
+                editable="true"
+                id="US1"
+                label="&quot;User 1 Score&quot;"
+                value="customUserInstance.User1Score"
+                valueType="java.lang.Integer"/>
+              <TextInput
+                editable="true"
+                id="US2"
+                label="&quot;User 2 Score&quot;"
+                value="customUserInstance.User2Score"
+                valueType="java.lang.Integer"/>
+              <TextInput
+                editable="true"
+                id="US3"
+                label="&quot;User 3 Score&quot;"
+                value="customUserInstance.User3Score"
+                valueType="java.lang.Integer"/>
+              <TextInput
+                id="TS1"
+                label="&quot;Total Score&quot;"
+                value="customUserInstance.TotalScore"
+                valueType="java.lang.Integer">
+                <Reflect
+                  triggerIds="US1,US2,US3"
+                  value="customUserInstance.getTotalScoreOfUser(VALUE1, VALUE2, VALUE3)"/>
+              </TextInput>
+            </InputColumn>
+            <InputColumn>
+              <BooleanRadioInput
+                editable="true"
+                id="id4"
+                label="DisplayKey.get(&quot;Strategic.Partner.Key&quot;)"
+                requestValidationExpression="(customUserInstance.StrategicPartner == false) ? &quot;Strategic Partner is false&quot; : null"
+                value="customUserInstance.StrategicPartner">
+                <PostOnChange/>
+              </BooleanRadioInput>
+              <TextInput
+                editable="true"
+                id="id1"
+                label="&quot;User Name&quot;"
+                requestValidationExpression=" (VALUE == null) ? &quot;Value can't be Blank &quot; : null
+"
+                value="customUserInstance.Name"/>
+              <TextInput
+                id="id78"
+                label="&quot;Second User&quot;"
+                value="&quot;Second User&quot;"/>
+            </InputColumn>
+          </DetailViewPanel>
+        </Card>
+        <Card
+          id="Card888"
+          title="&quot;Messaging Queue&quot;">
+          <DetailViewPanel>
+            <InputColumn>
+              <TextInput
+                editable="true"
+                id="txt888"
+                label="&quot;Address&quot;"
+                value="backGroundVerification.Address"/>
+              <TextInput
+                editable="true"
+                id="txt555"
+                label="&quot;Details&quot;"
+                value="backGroundVerification.Details"/>
+              <DateInput
+                editable="true"
+                id="txt556"
+                label="&quot;Registration Date&quot;"
+                value="backGroundVerification.RegistrationDate"/>
+              <TextInput
+                editable="true"
+                id="txt5587"
+                label="&quot;Description&quot;"
+                value="backGroundVerification.Description"/>
+            </InputColumn>
+          </DetailViewPanel>
+        </Card>
+        <Card
+          id="Card88899"
+          title="&quot;Web Service Integration Testing&quot;">
+          <DetailViewPanel>
+            <InputColumn>
+              <TextInput
+                editable="true"
+                id="txt66"
+                label="&quot;Claim Number&quot;"
+                value="anABContact.claimNumber"/>
+              <TextInput
+                id="txt777"
+                label="&quot;Claim Status WS-Response&quot;"
+                value="&quot;Default&quot;"/>
+            </InputColumn>
+          </DetailViewPanel>
+        </Card>
+      </CardViewPanel>
+      <CardViewPanel>
+        <Card
+          id="Card1"
+          title="&quot;Some UI Changes&quot;">
+          <DetailViewPanel>
+            <InputColumn>
+              <InputSetRef
+                def="MyContactSpecificUI_ExtInputSet()"
+                mode="anABContact.Subtype"/>
+            </InputColumn>
+          </DetailViewPanel>
+          <PanelRef
+            __disabled="true">
+            <Toolbar>
+              <IteratorButtons
+                iterator="policyLV"/>
+            </Toolbar>
+            <ListViewPanel
+              id="policyLV">
+              <RowIterator
+                editable="true"
+                elementName="name"
+                id="rt123"
+                toAdd="customUserInstance.addToPolicyDetails(name)"
+                toRemove="customUserInstance.removeFromPolicyDetails(name)"
+                value="customUserInstance.PolicyDetails"
+                valueType="entity.PolicyDetails_Ext[]">
+                <Row>
+                  <TextCell
+                    action="MyCustomFirstPopup.push(name)"
+                    editable="true"
+                    id="tx1"
+                    label="&quot;Policy Number&quot;"
+                    value="name.PolicyNumber"/>
+                  <TextCell
+                    action="MyCustomFirstWorksheet.goInWorkspace(anABContact)"
+                    editable="true"
+                    id="tx2"
+                    label="&quot;Premium&quot;"
+                    value="name.Premium"/>
+                  <TextCell
+                    action="LinkToAmazon_Ext.push()"
+                    editable="true"
+                    id="tx3"
+                    label="&quot;Location&quot;"
+                    value="name.Location"/>
+                </Row>
+              </RowIterator>
+            </ListViewPanel>
+          </PanelRef>
+        </Card>
+        <Card
+          id="Card2"
+          title="&quot;Detail View Changes&quot;">
+          <DetailViewPanel>
+            <InputColumn>
+              <InputSet>
+                <TextInput
+                  editable="true"
+                  id="id2"
+                  label="&quot;User Desc&quot;"
+                  value="customUserInstance.Description"
+                  visible="customUserInstance.StrategicPartner"/>
+                <DateInput
+                  editable="true"
+                  id="id3"
+                  label="&quot;Customer DOB&quot;"
+                  requestValidationExpression="gw.CustomCode.cu"
+                  value="customUserInstance.CustomerDOB"
+                  __disabled="true"/>
+                <TextInput
+                  id="id6"
+                  label="&quot;Investigation Days&quot;"
+                  value="4545"
+                  valueType="java.lang.Integer"/>
+                <TypeKeyInput
+                  editable="true"
+                  id="id8999"
+                  label="&quot;User Selection&quot;"
+                  value="customUserInstance.SelectedValue"
+                  valueType="typekey.FixedDropDowns_Ext"/>
+                <RangeInput
+                  editable="true"
+                  id="id67676"
+                  label="&quot;Filtered User Selection&quot;"
+                  value="customUserInstance.SelectedValue"
+                  valueRange="FixedDropDowns_Ext.TF_FILITEREDVALUES.TypeKeys"
+                  valueType="typekey.FixedDropDowns_Ext"/>
+              </InputSet>
+              <CheckBoxInput
+                editable="true"
+                id="yu88"
+                label="&quot;Checkbox&quot;"
+                value="anABContact.IsVendorRecommended"/>
+            </InputColumn>
+            <InputColumn>
+              <TextInput
+                editable="true"
+                id="id89"
+                label="&quot;Address Line 1&quot;"
+                value="customUserInstance.LinkToAddress.AddLine1"/>
+              <TextInput
+                editable="true"
+                id="id90"
+                label="&quot;Address Line 2&quot;"
+                value="customUserInstance.LinkToAddress.AddLine2"/>
+              <TextInput
+                editable="true"
+                id="id91"
+                label="&quot;Address Line 3&quot;"
+                value="customUserInstance.LinkToAddress.AddLine3">
+                <PostOnChange/>
+              </TextInput>
+              <InputSet
+                visible="customUserInstance.LinkToAddress.AddLine3 != null">
+                <TextInput
+                  editable="true"
+                  id="id92"
+                  label="&quot;City&quot;"
+                  value="customUserInstance.LinkToAddress.City"/>
+                <TextInput
+                  editable="true"
+                  id="id93"
+                  label="&quot;State&quot;"
+                  value="customUserInstance.LinkToAddress.State"/>
+                <TextInput
+                  editable="true"
+                  id="id95"
+                  label="&quot;Country&quot;"
+                  value="customUserInstance.LinkToAddress.Country"/>
+              </InputSet>
+            </InputColumn>
+          </DetailViewPanel>
+        </Card>
+        <Card
+          id="Card3"
+          title="&quot;List View Changes&quot;">
+          <PanelRef>
+            <Toolbar>
+              <IteratorButtons
+                iterator="PolicyDetailsLV"/>
+            </Toolbar>
+            <ListViewPanel
+              id="PolicyDetailsLV">
+              <RowIterator
+                editable="true"
+                elementName="policyRow"
+                toAdd="customUserInstance.addToPolicyDetails(policyRow)"
+                toRemove="customUserInstance.removeFromPolicyDetails(policyRow)"
+                value="customUserInstance.PolicyDetails"
+                valueType="entity.PolicyDetails_Ext[]">
+                <Row>
+                  <ButtonCell
+                    action="CustomLearning_ExtPopup.push(policyRow)"
+                    id="Buttone1"
+                    label="&quot;View/Edit&quot;"
+                    value="&quot;View/Edit&quot;"/>
+                  <TextCell
+                    action="MyTaskDetails_ExtWorksheet.goInWorkspace(anABContact)"
+                    available="false"
+                    editable="true"
+                    id="id21"
+                    label="&quot;Policy Number&quot;"
+                    value="policyRow.PolicyNumber"/>
+                  <TextCell
+                    editable="true"
+                    id="id22"
+                    label="&quot;Premium&quot;"
+                    value="policyRow.Premium"/>
+                  <TextCell
+                    action="LinkToSalesforce_Ext.push()"
+                    editable="true"
+                    id="id23"
+                    label="&quot;Location&quot;"
+                    value="policyRow.Location"/>
+                </Row>
+              </RowIterator>
+            </ListViewPanel>
+          </PanelRef>
+        </Card>
+        <Card
+          id="Card4"
+          title="&quot;Reusable DV&quot;">
+          <PanelRef
+            def="MyCommonReusable_ExtDV(customUserInstance, anABContact)"/>
+        </Card>
+        <Card
+          id="Card6"
+          title="&quot;Web Service Consumption&quot;">
+          <DetailViewPanel>
+            <InputColumn>
+              <TextInput
+                editable="true"
+                id="IP1"
+                label="&quot;Customer IP Address&quot;"
+                value="customUserInstance.IPAddress">
+                <PostOnChange/>
+              </TextInput>
+              <TextInput
+                id="WSR1"
+                label="&quot;Web Service Response&quot;"
+                value="gw.CustomCode.MyGenericUtil.consumeGeoIPService(customUserInstance.IPAddress)"/>
+            </InputColumn>
+          </DetailViewPanel>
+        </Card>
+        <Card
+          id="card16777"
+          title="&quot;Dependent DropDown&quot;"
+          __disabled="true">
+          <DetailViewPanel>
+            <InputColumn>
+              <TypeKeyInput
+                editable="true"
+                id="txt34"
+                label="&quot;Country&quot;"
+                value="anABContact.CountryKey"
+                valueType="typekey.Country_Ext"/>
+              <TypeKeyInput
+                editable="true"
+                id="txt8900"
+                label="&quot;State&quot;"
+                value="anABContact.StateKey"
+                valueType="typekey.State_Ext"/>
+            </InputColumn>
+          </DetailViewPanel>
+        </Card>
+        <Card
+          id="card1678"
+          title="&quot;List View Panel&quot;"></Card>
+      </CardViewPanel>
+    </Screen>
+  </Page>
+</PCF>
