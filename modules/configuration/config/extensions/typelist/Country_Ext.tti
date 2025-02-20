@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="Country_Ext" desc="Country typelist">
+  <typecode
+    code="India"
+    name="India"/>
+  <typecode
+    code="US"
+    name="US"/>
+  <typecode
+    code="Japan"
+    name="Japan"/>
+  <typecode
+    code="Japan1"
+    name="Japan"/>
+</typelist>
