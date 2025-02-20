@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="State_Ext" desc="">
+  <typecode
+    code="Delhi"
+    name="Delhi">
+    <category
+      code="India"
+      typelist="Country_Ext"/>
+  </typecode>
+  <typecode
+    code="Califonia"
+    name="Calofornia">
+    <category
+      code="US"
+      typelist="Country_Ext"/>
+  </typecode>
+  <typecode
+    code="Tokyo"
+    name="Tokyo">
+    <category
+      code="Japan"
+      typelist="Country_Ext"/>
+  </typecode>
+  <typecode
+    code="Tokyo1"
+    name="Tokyo1">
+    <category
+      code="Japan"
+      typelist="Country_Ext"/>
+  </typecode>
+</typelist>
