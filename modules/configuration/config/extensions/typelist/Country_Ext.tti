@@ -12,4 +12,7 @@
   <typecode
     code="Japan1"
     name="Japan"/>
+  <typecode
+    code="Japan174"
+    name="Japan_copy"/>
 </typelist>
